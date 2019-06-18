@@ -1,5 +1,6 @@
 package demo.entity;
 
+import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
@@ -18,6 +19,8 @@ public class Account {
     private long updatedAtMLS;
     @Index
     private int status;
+
+    Ref<Student> studentRef;
 
     public Account() {
         this.createdAtMLS = Calendar.getInstance().getTimeInMillis();
@@ -71,5 +74,13 @@ public class Account {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Ref<Student> getStudentRef() {
+        return studentRef;
+    }
+
+    public void setStudentRef(Ref<Student> studentRef) {
+        this.studentRef = studentRef;
     }
 }

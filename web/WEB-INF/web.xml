@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+    <servlet>
+        <servlet-name>CreateAccountController</servlet-name>
+        <servlet-class>demo.controller.CreateAccountController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateAccountController</servlet-name>
+        <url-pattern>/account/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListAccountController</servlet-name>
+        <servlet-class>demo.controller.ListAccountController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListAccountController</servlet-name>
+        <url-pattern>/account/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AccountDetailController</servlet-name>
+        <servlet-class>demo.controller.AccountDetailController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountDetailController</servlet-name>
+        <url-pattern>/account/detail</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>ObjectifyFilter</filter-name>
+        <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

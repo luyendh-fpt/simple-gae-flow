@@ -30,12 +30,46 @@
         <url-pattern>/account/detail</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CreateClassRoomController</servlet-name>
+        <servlet-class>demo.controller.CreateClassRoomController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateClassRoomController</servlet-name>
+        <url-pattern>/classroom/create</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListClassRoomController</servlet-name>
+        <servlet-class>demo.controller.ListClassRoomController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListClassRoomController</servlet-name>
+        <url-pattern>/classroom/list</url-pattern>
+    </servlet-mapping>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.jsp</location>
+    </error-page>
+
     <filter>
         <filter-name>ObjectifyFilter</filter-name>
         <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>ObjectifyRegisterFilter</filter-name>
+        <filter-class>demo.filter.ObjectifyRegisterFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyRegisterFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>

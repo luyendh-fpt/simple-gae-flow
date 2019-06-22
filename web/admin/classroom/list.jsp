@@ -28,8 +28,11 @@
     <%
         for (int i = 0; i < list.size(); i++) {
     %>
-    <li><a href="/classroom/detail?id=<%=list.get(i).getId()%>"><%= list.get(i).getName()%>
-    </a></li>
+    <li>
+        <img src="<%=list.get(i).getImageUrl()%>" alt="" style="width: 200px">
+        <a href="/classroom/detail?id=<%=list.get(i).getId()%>"><%= list.get(i).getName()%>
+        </a>
+    </li>
     <%
         }
     %>

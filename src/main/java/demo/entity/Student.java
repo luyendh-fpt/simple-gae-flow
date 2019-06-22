@@ -7,16 +7,25 @@ import com.googlecode.objectify.annotation.Id;
 @Entity
 public class Student {
     @Id
-    private String username;
+    private String rollNumber;
     private String fullName;
+    private String avatarUrl;
     Ref<Account> accountRef;
 
-    public String getUsername() {
-        return username;
+    public String getRollNumber() {
+        return rollNumber;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setRollNumber(String rollNumber) {
+        this.rollNumber = rollNumber;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getFullName() {

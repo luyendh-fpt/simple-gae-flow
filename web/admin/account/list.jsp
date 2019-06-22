@@ -1,5 +1,6 @@
 <%@ page import="demo.entity.Account" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="demo.entity.Student" %><%--
   Created by IntelliJ IDEA.
   User: xuanhung
   Date: 2019-06-18
@@ -20,7 +21,22 @@
         <%
             for (int i = 0; i < list.size(); i++) {
         %>
-                <li><a href="/account/detail?id=<%=list.get(i).getUsername()%>"><%= list.get(i).getUsername()%></a></li>
+                <li>
+                    <div>
+                        <%
+                            if(list.get(i).getStudentRef()!=null)
+                            {
+                                Student student = list.get(i).getStudentRef().get();
+                        %>
+                            <img src="<%=student.getAvatarUrl()%>" alt="" style="width: 150px;">
+                        <%
+                            }
+                        %>
+                    </div>
+                    <div>
+                        <a href="/account/detail?id=<%=list.get(i).getUsername()%>"><%= list.get(i).getUsername()%></a>
+                    </div>
+                </li>
         <%
             }
         %>

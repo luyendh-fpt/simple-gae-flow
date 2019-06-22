@@ -3,6 +3,7 @@ package demo.filter;
 import com.googlecode.objectify.ObjectifyService;
 import demo.entity.Account;
 import demo.entity.ClassRoom;
+import demo.entity.Student;
 
 import javax.servlet.*;
 import java.io.IOException;
@@ -18,6 +19,7 @@ public class ObjectifyRegisterFilter implements Filter {
         // Đăng ký tất cả class làm việc với database tại đây.
         ObjectifyService.register(Account.class);
         ObjectifyService.register(ClassRoom.class);
+        ObjectifyService.register(Student.class);
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

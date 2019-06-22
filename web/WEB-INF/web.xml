@@ -4,6 +4,14 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
     <servlet>
+        <servlet-name>CheckAuthenticationController</servlet-name>
+        <servlet-class>demo.controller.CheckAuthenticationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckAuthenticationController</servlet-name>
+        <url-pattern>/account/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>CreateAccountController</servlet-name>
         <servlet-class>demo.controller.CreateAccountController</servlet-class>
     </servlet>

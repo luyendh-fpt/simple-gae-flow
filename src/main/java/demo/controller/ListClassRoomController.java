@@ -47,10 +47,6 @@ public class ListClassRoomController extends HttpServlet {
         req.setAttribute("list", list);
         req.setAttribute("currentPage", page);
         req.setAttribute("currentLimit", limit);
-//        LOGGER.info("query.count(): " + query.count());
-//        LOGGER.info("(query.count() / limit): " + (query.count() / limit));
-//        LOGGER.info("(query.count() % limit == 0 ? 0 : 1): " + (query.count() % limit == 0 ? 0 : 1));
-//        LOGGER.info("(query.count() / limit) + (query.count() % limit == 0 ? 0 : 1): " + (query.count() / limit) + (query.count() % limit == 0 ? 0 : 1));
         req.setAttribute("totalPage", (totalItem / limit) + (totalItem % limit == 0 ? 0 : 1));
         req.getRequestDispatcher("/admin/classroom/list.jsp").forward(req, resp);
     }

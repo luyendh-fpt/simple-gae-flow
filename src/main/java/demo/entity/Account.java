@@ -4,6 +4,7 @@ import com.googlecode.objectify.Ref;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.googlecode.objectify.annotation.Index;
+import demo.util.StringUtil;
 
 import java.util.Calendar;
 
@@ -23,9 +24,14 @@ public class Account {
     Ref<Student> studentRef;
 
     public Account() {
+        generateSalt();
         this.createdAtMLS = Calendar.getInstance().getTimeInMillis();
         this.updatedAtMLS = Calendar.getInstance().getTimeInMillis();
         this.status = 1;
+    }
+
+    private void generateSalt() {
+        this.salt = StringUtil.generateSalt();
     }
 
     public String getUsername() {
@@ -42,6 +48,10 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void encryptPassword(String password) {
+        this.password = StringUtil.hashPassword(password, this.salt);
     }
 
     public String getSalt() {

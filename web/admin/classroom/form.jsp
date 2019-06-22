@@ -1,5 +1,7 @@
 <%@ page import="demo.entity.ClassRoom" %>
-<%@ page import="java.util.HashMap" %><%--
+<%@ page import="java.util.HashMap" %>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreService" %>
+<%@ page import="com.google.appengine.api.blobstore.BlobstoreServiceFactory" %><%--
   Created by IntelliJ IDEA.
   User: xuanhung
   Date: 2019-06-18
@@ -8,6 +10,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     ClassRoom room = (ClassRoom) request.getAttribute("room");
     HashMap<String, String> errors = (HashMap<String, String>) request.getAttribute("errors");
     if(errors == null){
@@ -33,7 +36,8 @@
     }
 %>
 
-<form action="/classroom/create" method="post">
+<form action="<%= blobstoreService.createUploadUrl("/classroom/create") %>"
+      method="post" enctype="multipart/form-data">
     <div>
         Name <input type="text" name="name" value="<%= room.getName()%>">
         <%
@@ -54,6 +58,7 @@
             }
         %>
     </div>
+    <div>Image <input type="file" name="myFile"></div>
     <div>
         <input type="submit" value="Submit">
         <input type="reset" value="Reset">

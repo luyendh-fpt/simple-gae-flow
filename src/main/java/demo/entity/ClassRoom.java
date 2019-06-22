@@ -13,6 +13,7 @@ public class ClassRoom {
     private long id;
     @Index
     private String name;
+    private String imageUrl;
     private String description;
     @Index
     private long createdAtMLS;
@@ -111,5 +112,13 @@ public class ClassRoom {
 
     public void setStatus(Status status) {
         this.status = status.getValue();
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
